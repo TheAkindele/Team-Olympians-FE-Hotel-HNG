@@ -14,8 +14,36 @@ a:hover {
 }
 
 body {
-  background-color: navajowhite;
+  background-color: pink;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-y: hidden;
   /********** Section *******/
+}
+@media only screen and (max-width: 750px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    background: url("../../Resources/Rooms & rates/room_1.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    overflow-y: initial;
+  }
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: rgba(255, 222, 173, 0.87);
+  }
 }
 body section {
   display: flex;
@@ -23,31 +51,39 @@ body section {
   justify-content: nill;
   align-items: nill;
   position: relative;
-  height: 75vh;
-  width: 100%;
+  height: auto;
+  width: 100vw;
   /******** Left div *******/
+  /*********** Right div **********/
 }
 body section .left-div {
-  background-color: navajowhite;
   width: 50%;
   height: 100%;
   position: relative;
 }
+@media only screen and (max-width: 750px) {
+  body section .left-div {
+    width: 100%;
+    padding: 0;
+  }
+}
 body section .left-div .main {
-  height: 100%;
+  height: auto;
+  color: #533427;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
 }
+body section .left-div .main .slogan h2 {
+  font-family: "Mukta", sans-serif;
+}
 @media only screen and (max-width: 750px) {
   body section .left-div .main {
-    width: 80vw;
     margin: 0 auto;
+    margin-bottom: 100px;
+    position: relative;
     z-index: 999;
-    position: absolute;
-    left: 10vw;
-    color: white;
     text-align: center;
     color: #533427;
     display: flex;
@@ -56,148 +92,145 @@ body section .left-div .main {
     align-items: center;
   }
 }
-body section .left-div .main .top h1 {
-  font-family: "Mukta", sans-serif;
-}
 body section .left-div .main .search-bar {
+  flex: 3 1 auto;
+  width: 50%;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 @media only screen and (max-width: 750px) {
   body section .left-div .main .search-bar {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    width: 80%;
   }
 }
 body section .left-div .main .search-bar form {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
+  height: 100%;
+  margin: 0 auto;
 }
 @media only screen and (max-width: 750px) {
   body section .left-div .main .search-bar form {
-    width: 100%;
-    margin: 0 auto;
-    padding: 5px 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    width: 90%;
   }
 }
 body section .left-div .main .search-bar form .search {
-  background: white;
-  padding: 4px 2px;
-  width: 69%;
-}
-@media only screen and (max-width: 750px) {
-  body section .left-div .main .search-bar form .search {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 3px;
-  }
-}
-body section .left-div .main .search-bar form .search input {
-  border: none;
-  outline: none;
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 20px;
+  border: 1px solid rgba(83, 52, 39, 0.5);
+  box-shadow: 0 0 10px 4px rgba(83, 52, 39, 0.5);
+  padding: 20px 0;
+  margin: 50px 0;
   width: 80%;
+  max-width: 300px;
+  min-width: 250px;
+  color: #533427;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
-@media only screen and (max-width: 750px) {
-  body section .left-div .main .search-bar form .search input {
-    width: 80%;
-  }
+body section .left-div .main .search-bar form .search .input-box {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
 }
-body section .left-div .main .search-bar form .btn {
-  border: none;
-  outline: none;
-  background-color: #331a00;
-  color: white;
-  width: 30%;
-  font-size: smaller;
+body section .left-div .main .search-bar form .search .input-box label {
+  align-self: center;
 }
-@media only screen and (max-width: 750px) {
-  body section .left-div .main .search-bar form .btn {
-    width: 50%;
-    background-color: gray;
-    color: #331a00;
-  }
+body section .left-div .main .search-bar form .search .input-box input {
+  width: 70%;
+  color: rgba(0, 0, 0, 0.4);
+  text-transform: uppercase;
+  text-align: center;
+}
+body section .left-div .main .search-bar form .search .input-box i {
+  cursor: pointer;
+}
+body section .left-div .main .search-bar form .search .person {
+  width: 70%;
 }
 body section .left-div .btn {
   border: none;
   outline: none;
-  background-color: #331a00;
+  background-color: #533427;
   color: white;
 }
-
-/*********** Right div **********/
-.right-div {
-  background-color: #331a00;
+body section .right-div {
+  background: url("../../Resources/Rooms & rates/room_6.jpg");
+  position: fixed;
+  background-size: cover;
+  background-position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -10;
+}
+body section .right-div::before {
+  content: "";
+  background: linear-gradient(90deg, navajowhite 0%, navajowhite 50%, #291811 50%, #291811 100%);
   position: fixed;
   top: 0;
   right: 0;
-  width: 50%;
-  height: 100%;
+  width: 100%;
+  height: 100vh;
+  opacity: 0.7;
 }
 @media only screen and (max-width: 750px) {
-  .right-div {
+  body section .right-div {
     display: none;
   }
 }
-
-.hero-div {
-  height: 80%;
+body .hero-div {
   width: 50%;
+  height: auto;
   position: absolute;
-  z-index: 99;
-  top: 100px;
+  top: 20%;
   right: 8%;
+  border: 3px solid white;
+  z-index: 99;
 }
-@media only screen and (max-width: 750px) {
-  .hero-div {
-    position: relative;
-    width: 100vw;
-    height: 70vh;
-  }
-}
-.hero-div .fas {
-  font-size: 1.5em;
-  position: absolute;
-  z-index: 999;
-  color: white;
-}
-@media only screen and (max-width: 750px) {
-  .hero-div .fas {
-    display: none;
-  }
-}
-.hero-div .left {
-  left: -2%;
-  top: 50%;
-}
-.hero-div .right {
-  right: -2%;
-  top: 50%;
-}
-.hero-div img {
+body .hero-div .transparent-bg {
   width: 100%;
   height: 100%;
+  color: #fff3d6;
 }
 @media only screen and (max-width: 750px) {
-  .hero-div img {
+  body .hero-div {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    justify-self: center;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    border: 0;
+  }
+}
+body .hero-div img {
+  width: 100%;
+  height: auto;
+}
+@media only screen and (max-width: 750px) {
+  body .hero-div img {
     width: 100%;
   }
 }
 
 .wrapper {
-  position: relative;
-  max-width: 100%;
-  width: 100%;
+  max-width: 100vw;
+  width: 100vw;
   padding: 10px;
   margin: 0 auto;
   margin-bottom: 50px;
@@ -219,7 +252,11 @@ nav ul {
 nav ul li {
   list-style: none;
   margin-left: 30px;
-  margin-top: 20px;
+}
+@media only screen and (max-width: 750px) {
+  nav ul li {
+    margin: 10px 0;
+  }
 }
 
 nav ul li a {
@@ -234,6 +271,34 @@ header ul a:hover {
   color: white;
   border: 2px solid white;
   border-radius: 30px;
+}
+@media only screen and (max-width: 750px) {
+  header ul a:hover {
+    color: #533427;
+    border: 2px solid #533427;
+  }
+}
+
+footer {
+  display: none;
+}
+@media only screen and (max-width: 750px) {
+  footer {
+    display: block;
+    max-width: 100%;
+    background: rgba(255, 255, 255, 0.97);
+    position: relative;
+  }
+  footer #headphone_img {
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+  footer .headphone p {
+    line-height: 0.5;
+  }
+  footer .headphone {
+    margin-bottom: 20px;
+  }
 }
 
 /*# sourceMappingURL=home.css.map */
